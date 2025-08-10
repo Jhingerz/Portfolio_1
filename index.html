@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kulwinder Singh | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #6C63FF;
+      --background: #f9f9f9;
+      --text: #333;
+      --light: #fff;
+      --shadow: rgba(0,0,0,0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #6C63FF, #5146F0);
+      color: white;
+      padding: 4rem 1rem 3rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+    nav {
+      margin-top: 1.5rem;
+    }
+
+    nav a {
+      margin: 0 1rem;
+      color: #ffffffcc;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 2rem 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+
+    section {
+      background: var(--light);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px var(--shadow);
+      padding: 2rem;
+      flex: 1 1 300px;
+      min-width: 280px;
+      transition: transform 0.3s ease;
+    }
+
+    section:hover {
+      transform: translateY(-5px);
+    }
+
+    section h2 {
+      margin-bottom: 1rem;
+      color: var(--primary);
+      font-size: 1.5rem;
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 0.5rem;
+    }
+
+    section ul {
+      list-style: square inside;
+    }
+
+    section ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background-color: #eee;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      nav {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-top: 1rem;
+      }
+
+      nav a {
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Kulwinder Singh</h1>
+    <p>Email Marketing & Automation Expert</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#templates">Templates</a>
+      <a href="#reports">Reports</a>
+      <a href="#strategies">Strategies</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <section id="about">
+      <h2>About Me</h2>
+      <p>I specialize in lifecycle automation and CRM marketing, helping companies scale through targeted email and SMS campaigns using platforms like Klaviyo and Mailchimp.</p>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <ul>
+        <li>Team Lead at Way.com - Managed full-funnel CRM strategy and 6-person team</li>
+        <li>Email Marketing at Silvermine - Improved CTR by 25% using segmentation</li>
+        <li>Freelancer for 20+ DTC brands - Klaviyo, Mailchimp, Salesforce</li>
+      </ul>
+    </section>
+
+    <section id="templates">
+      <h2>Templates</h2>
+      <ul>
+        <li>Abandoned Cart Flow</li>
+        <li>Welcome Series</li>
+        <li>Re-engagement Campaigns</li>
+      </ul>
+    </section>
+
+    <section id="reports">
+      <h2>Reports</h2>
+      <ul>
+        <li>Monthly CRM Reports with KPIs</li>
+        <li>Deliverability Audits</li>
+        <li>Performance Dashboards</li>
+      </ul>
+    </section>
+
+    <section id="strategies">
+      <h2>Strategies</h2>
+      <ul>
+        <li>Segmentation Based Campaign Targeting</li>
+        <li>Customer Journey Mapping</li>
+        <li>Automation Planning & Execution</li>
+      </ul>
+    </section>
+  </div>
+
+  <footer>
+    &copy; 2025 Kulwinder Singh. Built with ❤️ using HTML & CSS.
+  </footer>
+
+</body>
+</html>
