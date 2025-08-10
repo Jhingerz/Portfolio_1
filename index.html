@@ -2,124 +2,188 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Kulwinder Singh | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --primary: #6C63FF;
-      --background: #f9f9f9;
-      --text: #333;
-      --light: #fff;
-      --shadow: rgba(0,0,0,0.1);
+      --primary: #4a90e2;
+      --background: #f0f4f8;
+      --text: #2c3e50;
+      --light: #ffffff;
+      --shadow: rgba(0, 0, 0, 0.12);
+      --max-width: 1000px;
+      --border-radius: 10px;
+      --font-sans: 'Inter', system-ui, sans-serif;
     }
 
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+      margin: 0; padding: 0; box-sizing: border-box;
     }
 
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: var(--font-sans);
       background-color: var(--background);
       color: var(--text);
       line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     header {
-      background: linear-gradient(135deg, #6C63FF, #5146F0);
-      color: white;
-      padding: 4rem 1rem 3rem;
+      background: var(--primary);
+      color: var(--light);
+      padding: 3rem 1rem 2rem;
       text-align: center;
+      box-shadow: 0 3px 8px var(--shadow);
+      flex-shrink: 0;
     }
 
     header h1 {
-      font-size: 2.5rem;
+      font-size: clamp(2rem, 6vw, 3rem);
+      font-weight: 700;
+      letter-spacing: 0.05em;
     }
 
     header p {
-      font-size: 1.2rem;
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
       margin-top: 0.5rem;
+      font-weight: 500;
+      font-style: italic;
+      opacity: 0.9;
     }
 
-    nav {
-      margin-top: 1.5rem;
+    nav.tabs {
+      margin: 2rem auto 3rem;
+      max-width: var(--max-width);
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      border-bottom: 3px solid var(--primary);
     }
 
-    nav a {
-      margin: 0 1rem;
-      color: #ffffffcc;
-      text-decoration: none;
+    nav.tabs button {
+      background: var(--light);
+      border: 2px solid var(--primary);
+      padding: 0.7rem 1.5rem;
       font-weight: 600;
-      transition: color 0.3s;
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      cursor: pointer;
+      color: var(--primary);
+      border-radius: var(--border-radius);
+      transition: all 0.3s ease;
+      user-select: none;
+      box-shadow: 0 2px 6px rgba(74, 144, 226, 0.2);
     }
 
-    nav a:hover {
-      color: #fff;
+    nav.tabs button:hover,
+    nav.tabs button:focus {
+      background-color: var(--primary);
+      color: var(--light);
+      outline: none;
+      box-shadow: 0 6px 15px rgba(74, 144, 226, 0.4);
+    }
+
+    nav.tabs button.active {
+      background-color: var(--primary);
+      color: var(--light);
+      border-color: var(--primary);
+      box-shadow: 0 8px 20px rgba(74, 144, 226, 0.5);
     }
 
     .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 2rem 1rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: center;
+      max-width: var(--max-width);
+      margin: 0 auto 3rem;
+      padding: 0 1rem;
+      flex-grow: 1;
     }
 
-    section {
+    section.tab-content {
       background: var(--light);
-      border-radius: 12px;
-      box-shadow: 0 4px 12px var(--shadow);
-      padding: 2rem;
-      flex: 1 1 300px;
-      min-width: 280px;
-      transition: transform 0.3s ease;
+      border-radius: var(--border-radius);
+      box-shadow: 0 6px 20px var(--shadow);
+      padding: 2.5rem 3rem;
+      display: none;
+      transition: opacity 0.4s ease;
     }
 
-    section:hover {
-      transform: translateY(-5px);
+    section.tab-content.active {
+      display: block;
     }
 
-    section h2 {
-      margin-bottom: 1rem;
+    section.tab-content h2 {
+      margin-bottom: 1.2rem;
       color: var(--primary);
-      font-size: 1.5rem;
-      border-bottom: 2px solid var(--primary);
-      padding-bottom: 0.5rem;
+      font-size: clamp(1.6rem, 3vw, 2rem);
+      border-bottom: 3px solid var(--primary);
+      padding-bottom: 0.7rem;
+      letter-spacing: 0.05em;
     }
 
-    section ul {
-      list-style: square inside;
+    section.tab-content h3 {
+      margin-top: 1.8rem;
+      font-weight: 600;
+      font-size: 1.3rem;
+      color: #34495e;
     }
 
-    section ul li {
-      margin-bottom: 0.5rem;
+    section.tab-content p {
+      margin: 0.6rem 0 1.2rem;
+      font-size: clamp(1rem, 1.8vw, 1.15rem);
+      line-height: 1.7;
+      color: #444d56;
+    }
+
+    section.tab-content ul {
+      list-style: disc inside;
+      padding-left: 1.25rem;
+    }
+
+    section.tab-content ul li {
+      margin-bottom: 0.85rem;
+      font-size: clamp(1rem, 1.8vw, 1.12rem);
+      color: #3b4a5a;
     }
 
     footer {
       text-align: center;
-      padding: 2rem 1rem;
-      background-color: #eee;
+      padding: 1.75rem 1rem;
+      background-color: #dde5ef;
       font-size: 0.9rem;
+      color: #607d8b;
+      font-weight: 500;
+      flex-shrink: 0;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
     }
 
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2rem;
-      }
-
-      nav {
-        display: flex;
+    @media (max-width: 640px) {
+      nav.tabs {
         flex-direction: column;
-        gap: 0.5rem;
-        margin-top: 1rem;
+        gap: 0.75rem;
+        border-bottom: none;
+        padding: 0 1rem;
       }
 
-      nav a {
-        margin: 0;
+      nav.tabs button {
+        border-radius: 12px;
+        border-width: 3px;
+        font-size: 1.1rem;
+        box-shadow: none;
+      }
+
+      nav.tabs button.active {
+        box-shadow: none;
+        border-color: var(--primary);
+      }
+
+      section.tab-content {
+        padding: 2rem 1.5rem;
+      }
+
+      section.tab-content h2 {
+        font-size: 1.5rem;
       }
     }
   </style>
@@ -129,61 +193,148 @@
   <header>
     <h1>Kulwinder Singh</h1>
     <p>Email Marketing & Automation Expert</p>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#templates">Templates</a>
-      <a href="#reports">Reports</a>
-      <a href="#strategies">Strategies</a>
-    </nav>
   </header>
 
+  <nav class="tabs" role="tablist" aria-label="Portfolio sections">
+    <button role="tab" aria-selected="true" aria-controls="about" id="tab-about" class="active">About</button>
+    <button role="tab" aria-selected="false" aria-controls="experience" id="tab-experience">Experience</button>
+    <button role="tab" aria-selected="false" aria-controls="templates" id="tab-templates">Templates</button>
+    <button role="tab" aria-selected="false" aria-controls="reports" id="tab-reports">Reports</button>
+    <button role="tab" aria-selected="false" aria-controls="certifications" id="tab-certifications">Certifications</button>
+    <button role="tab" aria-selected="false" aria-controls="strategies" id="tab-strategies">Strategies</button>
+  </nav>
+
   <div class="container">
-    <section id="about">
+
+    <section id="about" class="tab-content active" role="tabpanel" aria-labelledby="tab-about" tabindex="0">
       <h2>About Me</h2>
-      <p>I specialize in lifecycle automation and CRM marketing, helping companies scale through targeted email and SMS campaigns using platforms like Klaviyo and Mailchimp.</p>
+      <p>
+        I specialize in end-to-end lifecycle automation and CRM marketing, leveraging advanced email and SMS strategies to help businesses grow and engage their customers effectively. My expertise spans across the entire customer lifecycle — from initial platform setup and integration to sophisticated campaign design, analytics, and ongoing optimization.
+      </p>
+      <p>
+        <strong>Email Platform Setup & Integration:</strong>  
+        I manage seamless onboarding and configuration of email marketing platforms such as Klaviyo, Mailchimp, Salesforce Marketing Cloud, and others. This includes integrating with eCommerce stores, CRMs, and other marketing tools to enable personalized, data-driven customer journeys.
+      </p>
+      <p>
+        <strong>Campaign Strategy & Automation:</strong>  
+        I design and execute targeted campaigns, including welcome series, abandoned cart flows, win-back campaigns, and post-purchase nurturing, using behavior-based triggers and segmentation. These automation flows deliver the right message at the right time to maximize engagement and conversions.
+      </p>
+      <p>
+        <strong>Template Design & Testing:</strong>  
+        Skilled in creating responsive, brand-aligned email templates using HTML, MJML, and drag-and-drop builders like BeeFree. I implement rigorous A/B and multivariate testing to optimize subject lines, content, and design for peak performance.
+      </p>
+      <p>
+        <strong>Analytics & Reporting:</strong>  
+        I build comprehensive dashboards and generate detailed reports tracking KPIs such as open rates, click-through rates, conversion rates, and revenue attribution. Leveraging tools like Tableau, Power BI, and Supermetrics, I provide actionable insights to continuously improve campaign outcomes.
+      </p>
+      <p>
+        <strong>Compliance & Deliverability:</strong>  
+        Ensuring campaigns meet GDPR, CAN-SPAM, and other regulatory standards is a priority. I handle domain/IP warm-up, monitor sender reputation, and conduct deliverability audits to maintain high inbox placement rates and minimize bounce and spam complaints.
+      </p>
+      <p>
+        <strong>Customer Lifecycle Focus:</strong>  
+        From acquisition to retention and re-engagement, my approach centers on delivering personalized, meaningful communication at every stage of the customer journey. By aligning strategy with customer behavior and data insights, I drive sustained growth and brand loyalty.
+      </p>
     </section>
 
-    <section id="experience">
+    <section id="experience" class="tab-content" role="tabpanel" aria-labelledby="tab-experience" tabindex="0">
       <h2>Experience</h2>
       <ul>
-        <li>Team Lead at Way.com - Managed full-funnel CRM strategy and 6-person team</li>
-        <li>Email Marketing at Silvermine - Improved CTR by 25% using segmentation</li>
-        <li>Freelancer for 20+ DTC brands - Klaviyo, Mailchimp, Salesforce</li>
+        <li>
+          <strong>Team Lead – Email Marketing</strong><br />
+          <em>Way.com | Tavendrum, India | May 2023 - Present</em>
+          <ul>
+            <li>Lead a team of email marketers to build automation flows and create marketing campaigns using Klaviyo.</li>
+            <li>Oversee integration and data sync between eCommerce platforms and Klaviyo to ensure real-time audience segmentation and targeting.</li>
+            <li>Develop and execute multi-channel lifecycle marketing strategies, focusing on email and SMS.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Email Marketing Specialist</strong><br />
+          <em>Freelance | Remote | Jan 2020 - Apr 2023</em>
+          <ul>
+            <li>Designed over 200 responsive email templates using MJML and custom HTML.</li>
+            <li>Managed end-to-end email campaigns for clients in retail, SaaS, and B2B sectors.</li>
+            <li>Performed A/B testing and analytics reporting to improve client campaign performance by up to 35%.</li>
+          </ul>
+        </li>
       </ul>
     </section>
 
-    <section id="templates">
-      <h2>Templates</h2>
+    <section id="templates" class="tab-content" role="tabpanel" aria-labelledby="tab-templates" tabindex="0">
+      <h2>Email Templates</h2>
+      <p>Examples of responsive email templates I have designed and coded:</p>
       <ul>
-        <li>Abandoned Cart Flow</li>
-        <li>Welcome Series</li>
-        <li>Re-engagement Campaigns</li>
+        <li>Welcome Series Template – Clean layout with dynamic personalization tokens.</li>
+        <li>Abandoned Cart Reminder – Multi-block design with strong CTAs and social proof.</li>
+        <li>Seasonal Promotions – Bold visuals combined with mobile-optimized content blocks.</li>
+        <li>Newsletter Template – Modular design supporting content-rich and visual storytelling.</li>
       </ul>
     </section>
 
-    <section id="reports">
-      <h2>Reports</h2>
+    <section id="reports" class="tab-content" role="tabpanel" aria-labelledby="tab-reports" tabindex="0">
+      <h2>Reports & Analytics</h2>
+      <p>Tools & dashboards I utilize for data-driven marketing insights:</p>
       <ul>
-        <li>Monthly CRM Reports with KPIs</li>
-        <li>Deliverability Audits</li>
-        <li>Performance Dashboards</li>
+        <li>Google Analytics & UTM Tracking integration for campaign performance.</li>
+        <li>Supermetrics for pulling data into Google Sheets and Data Studio dashboards.</li>
+        <li>Tableau & Power BI for advanced segmentation and visual analytics.</li>
+        <li>Regular reporting on KPIs like delivery rates, open rates, CTR, revenue, and ROI.</li>
       </ul>
     </section>
 
-    <section id="strategies">
+    <section id="certifications" class="tab-content" role="tabpanel" aria-labelledby="tab-certifications" tabindex="0">
+      <h2>Certifications</h2>
+      <ul>
+        <li>Klaviyo Email Marketing Certified</li>
+        <li>Mailchimp Email Marketing Certification</li>
+        <li>Google Analytics Certified</li>
+        <li>HubSpot Email Marketing Certification</li>
+      </ul>
+    </section>
+
+    <section id="strategies" class="tab-content" role="tabpanel" aria-labelledby="tab-strategies" tabindex="0">
       <h2>Strategies</h2>
+      <p>My core strategies include:</p>
       <ul>
-        <li>Segmentation Based Campaign Targeting</li>
-        <li>Customer Journey Mapping</li>
-        <li>Automation Planning & Execution</li>
+        <li>Lifecycle automation to engage customers based on behavior and journey stage.</li>
+        <li>Personalized segmentation to deliver relevant content and offers.</li>
+        <li>Continuous testing and optimization through A/B and multivariate tests.</li>
+        <li>Cross-channel integration combining email, SMS, and social remarketing.</li>
+        <li>Focus on deliverability and compliance to protect sender reputation.</li>
       </ul>
     </section>
+
   </div>
 
   <footer>
-    &copy; 2025 Kulwinder Singh. Built with ❤️ using HTML & CSS.
+    &copy; 2025 Kulwinder Singh. All rights reserved.
   </footer>
+
+  <script>
+    const tabs = document.querySelectorAll('nav.tabs button');
+    const tabContents = document.querySelectorAll('section.tab-content');
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        // Remove active class and aria-selected from all tabs
+        tabs.forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+
+        // Hide all tab contents
+        tabContents.forEach(tc => tc.classList.remove('active'));
+
+        // Activate clicked tab and show content
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+        const contentId = tab.getAttribute('aria-controls');
+        document.getElementById(contentId).classList.add('active');
+        document.getElementById(contentId).focus();
+      });
+    });
+  </script>
 
 </body>
 </html>
